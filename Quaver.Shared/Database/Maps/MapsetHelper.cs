@@ -132,7 +132,7 @@ namespace Quaver.Shared.Database.Maps
         /// <returns></returns>
         internal static List<Mapset> OrderMapsByDifficulty(List<Mapset> mapsets)
         {
-            mapsets.ForEach(x => x.Maps = x.Maps.OrderBy(y => y.Difficulty10X).ToList());
+            mapsets.ForEach(x => x.Maps = x.Maps.OrderBy(y => y.Difficulty10X.Average()).ToList());
             return mapsets;
         }
 
@@ -238,7 +238,7 @@ namespace Quaver.Shared.Database.Maps
                                 if (!float.TryParse(searchQuery.Value, out var valDiff))
                                     exitLoop = true;
 
-                                if (!CompareValues(map.DifficultyFromMods(ModManager.Mods), valDiff, searchQuery.Operator))
+                                if (!CompareValues(map.DifficultyFromMods(ModManager.Mods).Average(), valDiff, searchQuery.Operator))
                                     exitLoop = true;
                                 break;
                             case SearchFilterOption.Length:

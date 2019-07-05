@@ -664,8 +664,8 @@ namespace Quaver.Shared.Screens.Result
 
             var state = Gameplay.Failed ? "Fail" : "Pass";
             var score = $"{ScoreProcessor.Score / 1000}k";
-            var acc = $"{StringHelper.AccuracyToString(ScoreProcessor.Accuracy)}";
-            var grade = Gameplay.Failed ? "F" : GradeHelper.GetGradeFromAccuracy(ScoreProcessor.Accuracy).ToString();
+            var acc = $"{StringHelper.AccuracyToString(ScoreProcessor.Accuracy.Average())}";
+            var grade = Gameplay.Failed ? "F" : GradeHelper.GetGradeFromAccuracy(ScoreProcessor.Accuracy.Average()).ToString();
             var combo = $"{ScoreProcessor.MaxCombo}x";
 
             if (OnlineManager.CurrentGame == null)

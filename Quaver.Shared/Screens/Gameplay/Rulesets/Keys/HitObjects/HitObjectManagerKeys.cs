@@ -325,7 +325,7 @@ namespace Quaver.Shared.Screens.Gameplay.Rulesets.Keys.HitObjects
 
                     // Add new hit stat data and update score
                     var stat = new HitStat(HitStatType.Miss, KeyPressType.None, hitObject.Info, hitObject.Info.StartTime, Judgement.Miss,
-                                            int.MinValue, Ruleset.ScoreProcessor.Accuracy, Ruleset.ScoreProcessor.Health);
+                                            int.MinValue, Ruleset.ScoreProcessor.Accuracy.DefaultIfEmpty(0).Average(), Ruleset.ScoreProcessor.Health);
                     Ruleset.ScoreProcessor.Stats.Add(stat);
 
                     var im = Ruleset.InputManager as KeysInputManager;
@@ -395,7 +395,7 @@ namespace Quaver.Shared.Screens.Gameplay.Rulesets.Keys.HitObjects
 
                     // Add new hit stat data and update score
                     var stat = new HitStat(HitStatType.Miss, KeyPressType.None, hitObject.Info, hitObject.Info.EndTime, Judgement.Okay,
-                                                int.MinValue, Ruleset.ScoreProcessor.Accuracy, Ruleset.ScoreProcessor.Health);
+                                                int.MinValue, Ruleset.ScoreProcessor.Accuracy.Average(), Ruleset.ScoreProcessor.Health);
                     Ruleset.ScoreProcessor.Stats.Add(stat);
 
                     var im = Ruleset.InputManager as KeysInputManager;

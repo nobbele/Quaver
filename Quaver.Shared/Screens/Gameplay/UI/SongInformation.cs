@@ -6,6 +6,7 @@
 */
 
 using System;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Quaver.API.Helpers;
 using Quaver.Shared.Assets;
@@ -112,17 +113,17 @@ namespace Quaver.Shared.Screens.Gameplay.UI
                 Alpha = 0
             };
 
-            var difficulty = (float) MapManager.Selected.Value.DifficultyFromMods(ModManager.Mods);
+            var difficulty = MapManager.Selected.Value.DifficultyFromMods(ModManager.Mods);
 
             Rating = new SpriteText(Fonts.SourceSansProSemiBold,
-                $"Difficulty: {StringHelper.AccuracyToString(difficulty).Replace("%", "")}",
+                $"Difficulty: {StringHelper.AccuracyToString(difficulty.Average()).Replace("%", "")}",
                 13)
             {
                 Parent = this,
                 Alignment = Alignment.TopCenter,
                 Y = Creator.Y + TextYSpacing + TextYSpacing * 0.75f,
                 Alpha = 0,
-                Tint = ColorHelper.DifficultyToColor(difficulty)
+                Tint = ColorHelper.DifficultyToColor(difficulty.Average())
             };
 
             // Get a formatted string of the activated mods.

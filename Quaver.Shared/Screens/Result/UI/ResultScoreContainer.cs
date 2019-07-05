@@ -134,7 +134,7 @@ namespace Quaver.Shared.Screens.Result.UI
 
         public override void Destroy()
         {
-            HitDifferenceGraph.Image?.Dispose();
+            HitDifferenceGraph?.Image?.Dispose();
 
             base.Destroy();
         }
@@ -246,7 +246,7 @@ namespace Quaver.Shared.Screens.Result.UI
             {
                 new ResultKeyValueItem(ResultKeyValueItemType.Vertical, "SCORE RATING", $"{performanceRating:F}"),
                 new ResultKeyValueItem(ResultKeyValueItemType.Vertical, "TOTAL SCORE", $"{Screen.ScoreProcessor.Score:N0}"),
-                new ResultKeyValueItem(ResultKeyValueItemType.Vertical, "ACCURACY", StringHelper.AccuracyToString(Screen.ScoreProcessor.Accuracy)),
+                new ResultKeyValueItem(ResultKeyValueItemType.Vertical, "ACCURACY", StringHelper.AccuracyToString(Screen.ScoreProcessor.Accuracy.Average())),
                 new ResultKeyValueItem(ResultKeyValueItemType.Vertical, "MAX COMBO", $"{Screen.ScoreProcessor.MaxCombo}x"),
             };
 

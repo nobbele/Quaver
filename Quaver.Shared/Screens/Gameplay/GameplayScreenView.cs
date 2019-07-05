@@ -403,7 +403,7 @@ namespace Quaver.Shared.Screens.Gameplay
             // Update score and accuracy displays
             ScoreDisplay.UpdateValue(Screen.Ruleset.ScoreProcessor.Score);
             RatingDisplay.UpdateValue(RatingProcessor.CalculateRating(Screen.Ruleset.ScoreProcessor.Accuracy));
-            AccuracyDisplay.UpdateValue(Screen.Ruleset.ScoreProcessor.Accuracy);
+            AccuracyDisplay.UpdateValue(Screen.Ruleset.ScoreProcessor.Accuracy.Average());
         }
 
         /// <summary>
@@ -530,11 +530,11 @@ namespace Quaver.Shared.Screens.Gameplay
                     user.SetImage();
 
                     var processor = user.Processor as ScoreProcessorKeys;
-                    processor.Accuracy = (float) mapScores[i].Accuracy;
+                    processor.Accuracy = mapScores[i].Accuracies;
                     processor.MaxCombo = mapScores[i].MaxCombo;
                     processor.Score = mapScores[i].TotalScore;
 
-                    user.Score.Text = $"{user.RatingProcessor.CalculateRating(processor.Accuracy):0.00} / {StringHelper.AccuracyToString(processor.Accuracy)}";
+                    user.Score.Text = $"{user.RatingProcessor.CalculateRating(processor.Accuracy):0.00} / {StringHelper.AccuracyToString(processor.Accuracy.Average())}";
                     user.Combo.Text = $"{processor.MaxCombo}x";
                 }
                 // Allow the user to play against their own local scores.

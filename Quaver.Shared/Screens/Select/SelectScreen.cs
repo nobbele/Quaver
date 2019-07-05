@@ -466,7 +466,7 @@ namespace Quaver.Shared.Screens.Select
             {
                 var map = MapManager.Selected.Value;
 
-                var diff = map.DifficultyFromMods(ModManager.Mods);
+                var diff = map.DifficultyFromMods(ModManager.Mods).Average();
 
                 // Prevent host from picking a map not within difficulty range
                 if (diff < OnlineManager.CurrentGame.MinimumDifficultyRating ||
@@ -511,7 +511,7 @@ namespace Quaver.Shared.Screens.Select
                 ThreadScheduler.Run(() =>
                 {
                     OnlineManager.Client.ChangeMultiplayerGameMap(map.Md5Checksum, map.MapId, map.MapSetId, map.ToString(), (byte) map.Mode,
-                        map.DifficultyFromMods(ModManager.Mods), map.GetDifficultyRatings(), map.GetJudgementCount(), MapManager.Selected.Value.GetAlternativeMd5());
+                        map.DifficultyFromMods(ModManager.Mods).Average(), map.GetDifficultyRatings(), map.GetJudgementCount(), MapManager.Selected.Value.GetAlternativeMd5());
 
                     OnlineManager.Client.SetGameCurrentlySelectingMap(false);
                     RemoveTopScreen(MultiplayerScreen);

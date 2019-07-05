@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Microsoft.Xna.Framework;
 using Quaver.Server.Common.Objects.Multiplayer;
@@ -251,7 +252,7 @@ namespace Quaver.Shared.Screens.Lobby.UI.Dialogs.Create
                     MapManager.Selected.Value.MapId,
                     MapManager.Selected.Value.MapSetId, Enum.Parse<MultiplayerGameRuleset>(Ruleset.Selector.SelectedItemText.Text.Replace("-", "_")),
                     AutoHostRotation.Selector.SelectedItemText.Text == "Yes", (byte) MapManager.Selected.Value.Mode,
-                    MapManager.Selected.Value.DifficultyFromMods(ModManager.Mods), MapManager.Selected.Value.Md5Checksum,
+                    MapManager.Selected.Value.DifficultyFromMods(ModManager.Mods).Average(), MapManager.Selected.Value.Md5Checksum,
                     MapManager.Selected.Value.GetDifficultyRatings(), MapManager.Selected.Value.GetJudgementCount(), MapManager.Selected.Value.GetAlternativeMd5());
 
                 OnlineManager.Client.CreateMultiplayerGame(game);

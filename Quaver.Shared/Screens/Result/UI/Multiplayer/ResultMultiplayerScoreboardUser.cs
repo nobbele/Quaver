@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
 using Quaver.API.Enums;
@@ -94,7 +95,7 @@ namespace Quaver.Shared.Screens.Result.UI.Multiplayer
             {
                 {"Rating", item.CalculateRating().ToString("00.00")},
                 {"Grade", ""},
-                {"Accuracy", StringHelper.AccuracyToString(item.Processor.Accuracy)},
+                {"Accuracy", StringHelper.AccuracyToString(item.Processor.Accuracy.Average())},
                 {"Max Combo", item.Processor.MaxCombo + "x"},
                 {"Marv", item.Processor.CurrentJudgements[Judgement.Marv].ToString()},
                 {"Perf", item.Processor.CurrentJudgements[Judgement.Perf].ToString()},
@@ -164,7 +165,7 @@ namespace Quaver.Shared.Screens.Result.UI.Multiplayer
                         Parent = this,
                         Alignment = Alignment.MidRight,
                         Size = new ScalableVector2(30, 30),
-                        Image = Item.Processor.Failed ? SkinManager.Skin.Grades[Grade.F] : SkinManager.Skin.Grades[GradeHelper.GetGradeFromAccuracy(Item.Processor.Accuracy)],
+                        Image = Item.Processor.Failed ? SkinManager.Skin.Grades[Grade.F] : SkinManager.Skin.Grades[GradeHelper.GetGradeFromAccuracy(Item.Processor.Accuracy.Average())],
                         UsePreviousSpriteBatchOptions = true
                     };
                 }

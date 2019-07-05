@@ -6,6 +6,7 @@
 */
 
 using System;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
 using Quaver.Shared.Assets;
@@ -113,7 +114,7 @@ namespace Quaver.Shared.Screens.Select.UI.Maps
 
             DifficultyName.Text = map.DifficultyName;
 
-            var difficulty = (float) map.DifficultyFromMods(ModManager.Mods);
+            var difficulty = map.DifficultyFromMods(ModManager.Mods).Average();
 
             TextDifficultyRating.Text = StringHelper.AccuracyToString(difficulty).Replace("%", "");
             TextDifficultyRating.Tint = ColorHelper.DifficultyToColor(difficulty);
@@ -197,7 +198,7 @@ namespace Quaver.Shared.Screens.Select.UI.Maps
             if (Map == null)
                 return;
 
-            var difficulty = (float) Map.DifficultyFromMods(ModManager.Mods);
+            var difficulty = (float) Map.DifficultyFromMods(ModManager.Mods).Average();
 
             var value = StringHelper.AccuracyToString(difficulty).Replace("%", "");
 

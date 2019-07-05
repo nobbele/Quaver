@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Net;
@@ -270,7 +270,7 @@ namespace Quaver.Shared.Screens.Multiplayer.UI
                 Creator.Tint = Color.White;
 
                 DifficultyRating.Text = map != null ? $"{map.DifficultyFromMods(ModManager.Mods):0.00}" : $"{Game.DifficultyRating:0.00}";
-                DifficultyRating.Tint = ColorHelper.DifficultyToColor((float) (map?.DifficultyFromMods(ModManager.Mods) ?? Game.DifficultyRating));
+                DifficultyRating.Tint = ColorHelper.DifficultyToColor((float) (map?.DifficultyFromMods(ModManager.Mods)?.Average() ?? Game.DifficultyRating));
                 DifficultyRating.X = Mode.X + Mode.Width + 8;
                 DifficultyName.X = DifficultyRating.X + DifficultyRating.Width + 2;
                 DifficultyName.Text = " - \"" + diffName + "\"";

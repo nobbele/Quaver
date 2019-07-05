@@ -182,28 +182,71 @@ namespace Quaver.Shared.Database.Maps
         }
 
 #region DIFFICULTY_RATINGS
-        public double Difficulty05X { get; set; }
-        public double Difficulty055X { get; set; }
-        public double Difficulty06X { get; set; }
-        public double Difficulty065X { get; set; }
-        public double Difficulty07X { get; set; }
-        public double Difficulty075X { get; set; }
-        public double Difficulty08X { get; set; }
-        public double Difficulty085X { get; set; }
-        public double Difficulty09X { get; set; }
-        public double Difficulty095X { get; set; }
-        public double Difficulty10X { get; set; }
-        public double Difficulty11X { get; set; }
-        public double Difficulty12X { get; set; }
-        public double Difficulty13X { get; set; }
-        public double Difficulty14X { get; set; }
-        public double Difficulty15X { get; set; }
-        public double Difficulty16X { get; set; }
-        public double Difficulty17X { get; set; }
-        public double Difficulty18X { get; set; }
-        public double Difficulty19X { get; set; }
-        public double Difficulty20X { get; set; }
- #endregion
+        [Ignore]
+        public float[] Difficulty05X { get; set; }
+        [Ignore]
+        public float[] Difficulty055X { get; set; }
+        [Ignore]
+        public float[] Difficulty06X { get; set; }
+        [Ignore]
+        public float[] Difficulty065X { get; set; }
+        [Ignore]
+        public float[] Difficulty07X { get; set; }
+        [Ignore]
+        public float[] Difficulty075X { get; set; }
+        [Ignore]
+        public float[] Difficulty08X { get; set; }
+        [Ignore]
+        public float[] Difficulty085X { get; set; }
+        [Ignore]
+        public float[] Difficulty09X { get; set; }
+        [Ignore]
+        public float[] Difficulty095X { get; set; }
+        [Ignore]
+        public float[] Difficulty10X { get; set; }
+        [Ignore]
+        public float[] Difficulty11X { get; set; }
+        [Ignore]
+        public float[] Difficulty12X { get; set; }
+        [Ignore]
+        public float[] Difficulty13X { get; set; }
+        [Ignore]
+        public float[] Difficulty14X { get; set; }
+        [Ignore]
+        public float[] Difficulty15X { get; set; }
+        [Ignore]
+        public float[] Difficulty16X { get; set; }
+        [Ignore]
+        public float[] Difficulty17X { get; set; }
+        [Ignore]
+        public float[] Difficulty18X { get; set; }
+        [Ignore]
+        public float[] Difficulty19X { get; set; }
+        [Ignore]
+        public float[] Difficulty20X { get; set; }
+
+        public string StrDifficulty05X { get => string.Join(",", Difficulty05X); set => Difficulty05X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty055X { get => string.Join(",", Difficulty055X); set => Difficulty055X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty06X { get => string.Join(",", Difficulty06X); set => Difficulty06X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty065X { get => string.Join(",", Difficulty065X); set => Difficulty065X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty07X { get => string.Join(",", Difficulty07X); set => Difficulty07X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty075X { get => string.Join(",", Difficulty075X); set => Difficulty075X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty08X { get => string.Join(",", Difficulty08X); set => Difficulty08X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty085X { get => string.Join(",", Difficulty085X); set => Difficulty085X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty09X { get => string.Join(",", Difficulty09X); set => Difficulty09X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty095X { get => string.Join(",", Difficulty095X); set => Difficulty095X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty10X { get => string.Join(",", Difficulty10X); set => Difficulty10X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty11X { get => string.Join(",", Difficulty11X); set => Difficulty11X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty12X { get => string.Join(",", Difficulty12X); set => Difficulty12X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty13X { get => string.Join(",", Difficulty13X); set => Difficulty13X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty14X { get => string.Join(",", Difficulty14X); set => Difficulty14X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty15X { get => string.Join(",", Difficulty15X); set => Difficulty15X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty16X { get => string.Join(",", Difficulty16X); set => Difficulty16X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty17X { get => string.Join(",", Difficulty17X); set => Difficulty17X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty18X { get => string.Join(",", Difficulty18X); set => Difficulty18X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty19X { get => string.Join(",", Difficulty19X); set => Difficulty19X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        public string StrDifficulty20X { get => string.Join(",", Difficulty20X); set => Difficulty20X = value?.Split(',')?.Select(str => float.Parse(str))?.ToArray() ; }
+        #endregion
 
         /// <summary>
         ///     Determines if this map is an osu! map.
@@ -368,34 +411,34 @@ namespace Quaver.Shared.Database.Maps
         {
             var qua = LoadQua(false);
 
-            Difficulty05X = qua.SolveDifficulty(ModIdentifier.Speed05X).OverallDifficulty;
-            Difficulty055X = qua.SolveDifficulty(ModIdentifier.Speed055X).OverallDifficulty;
-            Difficulty06X = qua.SolveDifficulty(ModIdentifier.Speed06X).OverallDifficulty;
-            Difficulty065X = qua.SolveDifficulty(ModIdentifier.Speed065X).OverallDifficulty;
-            Difficulty07X = qua.SolveDifficulty(ModIdentifier.Speed07X).OverallDifficulty;
-            Difficulty075X = qua.SolveDifficulty(ModIdentifier.Speed075X).OverallDifficulty;
-            Difficulty08X = qua.SolveDifficulty(ModIdentifier.Speed08X).OverallDifficulty;
-            Difficulty085X = qua.SolveDifficulty(ModIdentifier.Speed085X).OverallDifficulty;
-            Difficulty09X = qua.SolveDifficulty(ModIdentifier.Speed09X).OverallDifficulty;
-            Difficulty095X = qua.SolveDifficulty(ModIdentifier.Speed095X).OverallDifficulty;
-            Difficulty10X = qua.SolveDifficulty().OverallDifficulty;
-            Difficulty11X = qua.SolveDifficulty(ModIdentifier.Speed11X).OverallDifficulty;
-            Difficulty12X = qua.SolveDifficulty(ModIdentifier.Speed12X).OverallDifficulty;
-            Difficulty13X = qua.SolveDifficulty(ModIdentifier.Speed13X).OverallDifficulty;
-            Difficulty14X = qua.SolveDifficulty(ModIdentifier.Speed14X).OverallDifficulty;
-            Difficulty15X = qua.SolveDifficulty(ModIdentifier.Speed15X).OverallDifficulty;
-            Difficulty16X = qua.SolveDifficulty(ModIdentifier.Speed16X).OverallDifficulty;
-            Difficulty17X = qua.SolveDifficulty(ModIdentifier.Speed17X).OverallDifficulty;
-            Difficulty18X = qua.SolveDifficulty(ModIdentifier.Speed18X).OverallDifficulty;
-            Difficulty19X = qua.SolveDifficulty(ModIdentifier.Speed19X).OverallDifficulty;
-            Difficulty20X = qua.SolveDifficulty(ModIdentifier.Speed20X).OverallDifficulty;
+            Difficulty05X = qua.SolveDifficulty(ModIdentifier.Speed05X).Difficulty;
+            Difficulty055X = qua.SolveDifficulty(ModIdentifier.Speed055X).Difficulty;
+            Difficulty06X = qua.SolveDifficulty(ModIdentifier.Speed06X).Difficulty;
+            Difficulty065X = qua.SolveDifficulty(ModIdentifier.Speed065X).Difficulty;
+            Difficulty07X = qua.SolveDifficulty(ModIdentifier.Speed07X).Difficulty;
+            Difficulty075X = qua.SolveDifficulty(ModIdentifier.Speed075X).Difficulty;
+            Difficulty08X = qua.SolveDifficulty(ModIdentifier.Speed08X).Difficulty;
+            Difficulty085X = qua.SolveDifficulty(ModIdentifier.Speed085X).Difficulty;
+            Difficulty09X = qua.SolveDifficulty(ModIdentifier.Speed09X).Difficulty;
+            Difficulty095X = qua.SolveDifficulty(ModIdentifier.Speed095X).Difficulty;
+            Difficulty10X = qua.SolveDifficulty().Difficulty;
+            Difficulty11X = qua.SolveDifficulty(ModIdentifier.Speed11X).Difficulty;
+            Difficulty12X = qua.SolveDifficulty(ModIdentifier.Speed12X).Difficulty;
+            Difficulty13X = qua.SolveDifficulty(ModIdentifier.Speed13X).Difficulty;
+            Difficulty14X = qua.SolveDifficulty(ModIdentifier.Speed14X).Difficulty;
+            Difficulty15X = qua.SolveDifficulty(ModIdentifier.Speed15X).Difficulty;
+            Difficulty16X = qua.SolveDifficulty(ModIdentifier.Speed16X).Difficulty;
+            Difficulty17X = qua.SolveDifficulty(ModIdentifier.Speed17X).Difficulty;
+            Difficulty18X = qua.SolveDifficulty(ModIdentifier.Speed18X).Difficulty;
+            Difficulty19X = qua.SolveDifficulty(ModIdentifier.Speed19X).Difficulty;
+            Difficulty20X = qua.SolveDifficulty(ModIdentifier.Speed20X).Difficulty;
         }
 
         /// <summary>
         ///     Retrieve the map's difficulty rating from given mods
         /// </summary>
         /// <returns></returns>
-        public double DifficultyFromMods(ModIdentifier mods)
+        public float[] DifficultyFromMods(ModIdentifier mods)
         {
             if (mods.HasFlag(ModIdentifier.Speed05X))
                 return Difficulty05X;
@@ -498,27 +541,27 @@ namespace Quaver.Shared.Database.Maps
         {
             var ratings = new List<double>
             {
-                Difficulty05X,
-                Difficulty055X,
-                Difficulty06X,
-                Difficulty065X,
-                Difficulty07X,
-                Difficulty075X,
-                Difficulty08X,
-                Difficulty085X,
-                Difficulty09X,
-                Difficulty095X,
-                Difficulty10X,
-                Difficulty11X,
-                Difficulty12X,
-                Difficulty13X,
-                Difficulty14X,
-                Difficulty15X,
-                Difficulty16X,
-                Difficulty17X,
-                Difficulty18X,
-                Difficulty19X,
-                Difficulty20X
+                Difficulty05X.Average(),
+                Difficulty055X.Average(),
+                Difficulty06X.Average(),
+                Difficulty065X.Average(),
+                Difficulty07X.Average(),
+                Difficulty075X.Average(),
+                Difficulty08X.Average(),
+                Difficulty085X.Average(),
+                Difficulty09X.Average(),
+                Difficulty095X.Average(),
+                Difficulty10X.Average(),
+                Difficulty11X.Average(),
+                Difficulty12X.Average(),
+                Difficulty13X.Average(),
+                Difficulty14X.Average(),
+                Difficulty15X.Average(),
+                Difficulty16X.Average(),
+                Difficulty17X.Average(),
+                Difficulty18X.Average(),
+                Difficulty19X.Average(),
+                Difficulty20X.Average()
             };
 
             for (var i = 0; i < ratings.Count; i++)

@@ -257,7 +257,7 @@ namespace Quaver.Shared.Screens.Select.UI.Leaderboard
             X = Avatar.X + Avatar.Width + 10,
             Size = new ScalableVector2(HEIGHT * 0.65f, HEIGHT * 0.65f),
             Image = Score.Grade == API.Enums.Grade.F ? SkinManager.Skin.Grades[API.Enums.Grade.F]
-                : SkinManager.Skin.Grades[GradeHelper.GetGradeFromAccuracy((float) Score.Accuracy)]
+                : SkinManager.Skin.Grades[GradeHelper.GetGradeFromAccuracy(Score.Accuracy)]
         };
 
         /// <summary>

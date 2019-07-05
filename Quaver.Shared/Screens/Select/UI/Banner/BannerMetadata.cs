@@ -110,7 +110,7 @@ namespace Quaver.Shared.Screens.Select.UI.Banner
             Mode.UpdateValue(ModeHelper.ToShortHand(map.Mode));
             Bpm.UpdateValue(((int)(map.Bpm * ModHelper.GetRateFromMods(ModManager.Mods))).ToString(CultureInfo.InvariantCulture));
             Length.UpdateValue(length.Hours > 0 ? length.ToString(@"hh\:mm\:ss") : length.ToString(@"mm\:ss"));
-            Difficulty.UpdateValue(StringHelper.AccuracyToString((float) map.DifficultyFromMods(ModManager.Mods)).Replace("%", ""));
+            Difficulty.UpdateValue(StringHelper.AccuracyToString(map.DifficultyFromMods(ModManager.Mods).Average()).Replace("%", ""));
             LNPercentage.UpdateValue(((int) map.LNPercentage).ToString(CultureInfo.InvariantCulture) + "%");
 
             for (var i = 0; i < Items.Count; i++)

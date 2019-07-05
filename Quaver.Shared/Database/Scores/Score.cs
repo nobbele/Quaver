@@ -7,6 +7,7 @@
 
 using System;
 using System.Globalization;
+using System.Linq;
 using Quaver.API.Enums;
 using Quaver.API.Helpers;
 using Quaver.API.Maps.Processors.Rating;
@@ -60,7 +61,13 @@ namespace Quaver.Shared.Database.Scores
         /// <summary>
         ///     The accuracy the player achieved
         /// </summary>
-        public double Accuracy { get; set; }
+        public float Accuracy { get; set; }
+
+        /// <summary>
+        ///     The set of accuracies the player achieved
+        /// </summary>
+        [Ignore]
+        public float[] Accuracies { get; set; }
 
         /// <summary>
         ///     The max combo the player achieved
@@ -182,8 +189,9 @@ namespace Quaver.Shared.Database.Scores
                 DateTime = $"{System.DateTime.Now.ToShortDateString()} {System.DateTime.Now.ToShortTimeString()}",
                 Mode = processor.Map.Mode,
                 TotalScore = processor.Score,
-                Grade = processor.Failed ? Grade.F : GradeHelper.GetGradeFromAccuracy(processor.Accuracy),
-                Accuracy = processor.Accuracy,
+                Grade = processor.Failed ? Grade.F : GradeHelper.GetGradeFromAccuracy(processor.Accuracy.Average()),
+                Accuracy = processor.Accuracy.Average(),
+                Accuracies = processor.Accuracy,
                 MaxCombo = processor.MaxCombo,
                 CountMarv = processor.CurrentJudgements[Judgement.Marv],
                 CountPerf = processor.CurrentJudgements[Judgement.Perf],
@@ -224,7 +232,7 @@ namespace Quaver.Shared.Database.Scores
                 TotalScore = score.TotalScore,
                 PerformanceRating = score.PerformanceRating,
                 Grade = GradeHelper.GetGradeFromAccuracy((float) score.Accuracy),
-                Accuracy = score.Accuracy,
+                Accuracy = (float)score.Accuracy,
                 MaxCombo = score.MaxCombo,
                 CountMarv = score.CountMarv,
                 CountPerf = score.CountPerf,
@@ -246,7 +254,7 @@ namespace Quaver.Shared.Database.Scores
         {
             Date = Convert.ToDateTime(DateTime, CultureInfo.InvariantCulture),
             Score = TotalScore,
-            Accuracy = (float)Accuracy,
+            Accuracy = Accuracies,
             MaxCombo = MaxCombo,
             CountMarv = CountMarv,
             CountPerf = CountPerf,

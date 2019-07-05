@@ -6,6 +6,7 @@
 */
 
 using System;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Quaver.API.Helpers;
@@ -214,7 +215,7 @@ namespace Quaver.Shared.Screens.Result.UI
                     if (Screen.ScoreProcessor.Failed)
                         image = SkinManager.Skin.Grades[API.Enums.Grade.F];
                     else
-                        image = SkinManager.Skin.Grades[GradeHelper.GetGradeFromAccuracy(Screen.ScoreProcessor.Accuracy)];
+                        image = SkinManager.Skin.Grades[GradeHelper.GetGradeFromAccuracy(Screen.ScoreProcessor.Accuracy.Average())];
                     break;
                 case ResultScreenType.Score:
                     image = SkinManager.Skin.Grades[Screen.Score.Grade];

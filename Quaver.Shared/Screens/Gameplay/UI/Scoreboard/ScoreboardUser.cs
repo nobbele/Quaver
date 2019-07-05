@@ -283,7 +283,10 @@ namespace Quaver.Shared.Screens.Gameplay.UI.Scoreboard
             if (setScoreboardValues && Type == ScoreboardUserType.Self)
             {
                 var rating = CalculateRating();
-                Score.Text = $"{StringHelper.RatingToString(rating)} / {StringHelper.AccuracyToString(Processor.Accuracy)}";
+#pragma warning disable IDE0039 // Use local function
+                Func<ScoreboardUser, float> f = x => { var accuracy = x.Processor.Accuracy; if (accuracy.Length > 0) return accuracy.Average(); else return 0; };
+#pragma warning restore IDE0039 // Use local function
+                Score.Text = $"{StringHelper.RatingToString(rating)} / {StringHelper.AccuracyToString(f(this))}";
                 Combo.Text = Processor.Combo.ToString("N0") + "x";
 
                 SetTintBasedOnHealth();
@@ -304,7 +307,7 @@ namespace Quaver.Shared.Screens.Gameplay.UI.Scoreboard
 
                 var rating = CalculateRating();
 
-                Score.Text = $"{rating:0.00} / {StringHelper.AccuracyToString(Processor.Accuracy)}";
+                Score.Text = $"{rating:0.00} / {StringHelper.AccuracyToString(Processor.Accuracy.Average())}";
                 Combo.Text = Processor.Combo.ToString("N0") + "x";
                 Scoreboard.TeamBanner?.UpdateAverageRating();
             }

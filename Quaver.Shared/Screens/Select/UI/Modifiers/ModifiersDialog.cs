@@ -298,7 +298,7 @@ namespace Quaver.Shared.Screens.Select.UI.Modifiers
                     // Only update the difficulty rating when closing if the selected map is still the same.
                     // If the user switches maps, but changes modifiers, it'll be incorrect.
                     if (MapManager.Selected.Value != null && MapManager.Selected.Value.Md5Checksum == OnlineManager.CurrentGame.MapMd5)
-                        diffRating = MapManager.Selected.Value.DifficultyFromMods(ModManager.Mods);
+                        diffRating = MapManager.Selected.Value.DifficultyFromMods(ModManager.Mods).Average();
 
                     var rateNow = ModHelper.GetRateFromMods(ModManager.Mods);
 

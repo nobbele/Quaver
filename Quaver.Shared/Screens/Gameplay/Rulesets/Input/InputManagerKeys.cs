@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Quaver.API.Enums;
 using Quaver.API.Maps.Processors.Scoring;
 using Quaver.API.Maps.Processors.Scoring.Data;
@@ -195,7 +196,7 @@ namespace Quaver.Shared.Screens.Gameplay.Rulesets.Input
                     gameplayHitObject.Info, time,
                     judgement,
                     hitDifference,
-                    Ruleset.ScoreProcessor.Accuracy,
+                    Ruleset.ScoreProcessor.Accuracy.Average(),
                     Ruleset.ScoreProcessor.Health
             ));
 
@@ -228,7 +229,7 @@ namespace Quaver.Shared.Screens.Gameplay.Rulesets.Input
                             gameplayHitObject.Info, time,
                             Judgement.Miss,
                             time,
-                            Ruleset.ScoreProcessor.Accuracy,
+                            Ruleset.ScoreProcessor.Accuracy.Average(),
                             Ruleset.ScoreProcessor.Health
                         ));
 
@@ -287,7 +288,7 @@ namespace Quaver.Shared.Screens.Gameplay.Rulesets.Input
                         (int)manager.CurrentAudioPosition,
                         judgement,
                         hitDifference,
-                        Ruleset.ScoreProcessor.Accuracy,
+                        Ruleset.ScoreProcessor.Accuracy.Average(),
                         Ruleset.ScoreProcessor.Health
                 ));
 
@@ -325,7 +326,7 @@ namespace Quaver.Shared.Screens.Gameplay.Rulesets.Input
                     (int)manager.CurrentAudioPosition,
                     Judgement.Miss,
                     hitDifference,
-                    Ruleset.ScoreProcessor.Accuracy,
+                    Ruleset.ScoreProcessor.Accuracy.Average(),
                     Ruleset.ScoreProcessor.Health
             ));
 
