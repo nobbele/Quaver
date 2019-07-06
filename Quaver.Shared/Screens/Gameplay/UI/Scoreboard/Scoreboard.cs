@@ -305,7 +305,7 @@ namespace Quaver.Shared.Screens.Gameplay.UI.Scoreboard
                 users = Users
                     .OrderBy(x => x.Processor.Health <= 0)
                     .ThenByDescending(x => x.RatingProcessor.CalculateRating(x.Processor.Accuracy))
-                    .ThenByDescending(x => { var accuracy = x.Processor.Accuracy; if (accuracy.Length > 0) return accuracy.Average(); else return 0; })
+                    .ThenByDescending(x => x.Processor.Accuracy.DefaultIfEmpty(0).Average())
                     .ToList();
             }
 
